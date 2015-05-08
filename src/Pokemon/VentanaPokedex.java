@@ -67,10 +67,26 @@ public class VentanaPokedex extends javax.swing.JFrame {
         Pokemon p = listaPokemons.get(String.valueOf(contador+1));
         if (p != null){
             jLabel1.setText(p.nombre);
+            jLabel5.setText(p.species);
+            jLabel6.setText(p.height);
+            jLabel7.setText(p.weight);
+            jLabel10.setText(p.id);
+            jLabel11.setText(p.habitat);
+            jLabel13.setText(p.generation_id);
+            jLabel15.setText(p.capture_rate);
         }
         else {
             jLabel1.setText("NO HAY DATOS");
+            jLabel5.setText("NO HAY DATOS");
+            jLabel6.setText("???");
+            jLabel7.setText("???");
+            jLabel10.setText("??");
+            jLabel11.setText("???");
+            jLabel13.setText("???");
+            jLabel15.setText("???");
+            
         }
+        
     }
     @Override
     public void paint(Graphics g){
@@ -103,9 +119,15 @@ public class VentanaPokedex extends javax.swing.JFrame {
             while (resultadoConsulta.next()){
                 Pokemon p = new Pokemon();
                 p.nombre = resultadoConsulta.getString(2);
-                p.generation_id = resultadoConsulta.getInt(5);
+                p.generation_id = resultadoConsulta.getString(5);
                 p.evolution_chain_id = resultadoConsulta.getInt(6);
                 p.species = resultadoConsulta.getString(12);
+                p.height = resultadoConsulta.getString(10);
+                p.weight = resultadoConsulta.getString(11);
+                p.id = resultadoConsulta.getString(1);
+                p.habitat = resultadoConsulta.getString(15);
+                p.capture_rate = resultadoConsulta.getString(17);
+                
                 
                 listaPokemons.put(resultadoConsulta.getString(1), p);
             }
@@ -127,11 +149,26 @@ public class VentanaPokedex extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -144,53 +181,119 @@ public class VentanaPokedex extends javax.swing.JFrame {
             .addGap(0, 200, Short.MAX_VALUE)
         );
 
-        jButton1.setText("izquierda");
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(190, 120, 200, 200);
+
+        jLabel14.setFont(new java.awt.Font("SimSun", 1, 24)); // NOI18N
+        jLabel14.setText("Ratio Captura:");
+        getContentPane().add(jLabel14);
+        jLabel14.setBounds(740, 450, 200, 30);
+
+        jLabel15.setFont(new java.awt.Font("SimSun", 1, 36)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setText("0");
+        getContentPane().add(jLabel15);
+        jLabel15.setBounds(740, 480, 200, 30);
+
+        jLabel13.setFont(new java.awt.Font("SimSun", 1, 36)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setText("0");
+        getContentPane().add(jLabel13);
+        jLabel13.setBounds(400, 480, 200, 30);
+
+        jLabel12.setFont(new java.awt.Font("SimSun", 1, 24)); // NOI18N
+        jLabel12.setText("Generación ID:");
+        getContentPane().add(jLabel12);
+        jLabel12.setBounds(400, 450, 200, 30);
+
+        jLabel11.setFont(new java.awt.Font("SimSun", 1, 18)); // NOI18N
+        jLabel11.setText("Datos");
+        jLabel11.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(110, 490, 140, 90);
+
+        jLabel9.setFont(new java.awt.Font("SimSun", 1, 24)); // NOI18N
+        jLabel9.setText("Habitat:");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(90, 450, 120, 30);
+
+        jLabel10.setFont(new java.awt.Font("SimSun", 1, 36)); // NOI18N
+        jLabel10.setText("0");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(920, 80, 80, 30);
+
+        jLabel8.setFont(new java.awt.Font("SimSun", 1, 36)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel8.setText("ID:");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(720, 80, 190, 30);
+
+        jLabel7.setFont(new java.awt.Font("SimSun", 1, 40)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 51, 204));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("0");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(720, 340, 120, 47);
+
+        jLabel6.setFont(new java.awt.Font("SimSun", 1, 40)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("0");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(720, 283, 120, 47);
+
+        jLabel4.setFont(new java.awt.Font("SimSun", 1, 18)); // NOI18N
+        jLabel4.setText("Especie:");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(590, 200, 160, 20);
+
+        jLabel5.setFont(new java.awt.Font("SimSun", 1, 24)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(590, 220, 160, 40);
+
+        jLabel3.setFont(new java.awt.Font("SimSun", 1, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("NOMBRE:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(500, 80, 190, 30);
+
+        jLabel1.setFont(new java.awt.Font("SimSun", 1, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(490, 130, 200, 41);
+
+        jButton1.setBackground(new java.awt.Color(255, 51, 51));
+        jButton1.setFont(new java.awt.Font("SimSun-ExtB", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Anterior");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton1MousePressed(evt);
             }
         });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(440, 270, 120, 40);
 
-        jButton2.setText("derecha");
+        jButton2.setBackground(new java.awt.Color(255, 51, 51));
+        jButton2.setFont(new java.awt.Font("SimSun-ExtB", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Siguiente");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton2MousePressed(evt);
             }
         });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(440, 220, 120, 40);
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jButton1)
-                        .addGap(60, 60, 60)
-                        .addComponent(jButton2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(169, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(93, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Pokedex3.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 1030, 650);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -249,6 +352,20 @@ public class VentanaPokedex extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
